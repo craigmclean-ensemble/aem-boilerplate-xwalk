@@ -1,22 +1,32 @@
+import { createOptimizedPicture } from "../../scripts/aem.js";
+import { moveInstrumentation } from "../../scripts/scripts.js";
+
 export default function decorate(block) {
   const ul = document.createElement("ul");
+
   [...block.children].forEach((row) => {
     const li = document.createElement("li");
+
+    moveInstrumentation(row, li);
+
     while (row.firstElementChild) li.append(row.firstElementChild);
+
     [...li.children].forEach((div) => {
       if (div.querySelector("picture")) {
         div.className = "cards-card-image";
+
         const pEls = div.querySelectorAll("p");
         if (pEls.length) {
-          // replace any <p> elements inside image container with <div>s
           pEls.forEach((p, key) => {
             const newDiv = document.createElement("div");
             newDiv.className = `cards-card-image-${key}`;
+
+            moveInstrumentation(p, newDiv);
+
             while (p.firstChild) newDiv.appendChild(p.firstChild);
             p.replaceWith(newDiv);
           });
         } else {
-          // no <p> elements — wrap the picture in a div for consistent structure
           const pic = div.querySelector("picture");
           if (pic) {
             const wrapper = document.createElement("div");
@@ -32,12 +42,24 @@ export default function decorate(block) {
         if (h2) {
           const strong = h2.querySelector("strong");
           if (strong) {
+            moveInstrumentation(strong, h2);
             h2.innerHTML = strong.innerHTML;
           }
         }
       }
     });
     ul.append(li);
+  });
+
+  ul.querySelectorAll("img").forEach((img) => {
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [
+      { width: "750" },
+    ]);
+    const optimizedImg = optimizedPic.querySelector("img");
+
+    moveInstrumentation(img, optimizedImg);
+
+    img.closest("picture").replaceWith(optimizedPic);
   });
 
   block.replaceChildren(ul);
