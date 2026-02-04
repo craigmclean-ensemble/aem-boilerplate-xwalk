@@ -56,6 +56,14 @@ main > .section.contact-cards-container {
     font-family: "Open Sans", sans-serif;
 }
 
+@media (width >= 1279px) {
+    .contact-card p {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 28px;
+    }
+}
+
 @media (width >= 768px) {
     .contact-cards.block > div:first-child {
         display: grid;
@@ -84,7 +92,7 @@ main > .section.contact-cards-container {
     }
 
     .contact-card p {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 600;
         line-height: 28px;
     }
