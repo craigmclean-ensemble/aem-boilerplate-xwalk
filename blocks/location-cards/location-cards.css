@@ -33,6 +33,12 @@ h1 {
     padding: 8px 0;
 }
 
+.location-cards-container > .default-content-wrapper > h2 {
+    margin-top: 160px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
 .location-cards .cards-card-body h2 {
     padding: 8px 0;
     margin: 0;
