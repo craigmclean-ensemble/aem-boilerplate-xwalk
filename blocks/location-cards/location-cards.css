@@ -81,12 +81,10 @@ h1 {
 .location-cards .cards-card-image {
     line-height: 0;
     column-gap: 0;
-    height: 425px;
-    min-height: 425px;
     overflow: hidden;
-    display: flex;
-    flex-direction: row;
     font-family: "Open Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .location-cards .cards-card-image .cards-card-image-0 {
@@ -102,6 +100,60 @@ h1 {
     justify-self: stretch;
     position: relative;
     margin-left: 8px;
+}
+
+@media (width >= 640px) {
+    .location-cards .cards-card-image {
+        height: 425px;
+    }
+}
+
+@media (width >= 768px) {
+    .location-cards .cards-card-image {
+        height: 585px;
+    }
+}
+
+@media (width >= 1025px) {
+    .location-cards .cards-card-image {
+        height: 425px;
+        flex-direction: row;
+    }
+}
+
+@media only screen and (width <= 1024px) {
+    .location-cards .cards-card-image .cards-card-image-0 {
+        width: 100%;
+        height: 100%;
+        justify-self: stretch;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .location-cards .cards-card-image .cards-card-image-1 {
+        box-sizing: border-box;
+        margin-left: 0;
+        padding-top: 10px;
+        width: 100%;
+        height: 100%;
+        justify-self: stretch;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (width < 640px) {
+    .location-cards .cards-card-image .cards-card-image-1 {
+        display: none;
+    }
+
+    .location-cards > ul {
+        grid-template-columns: 1fr;
+    }
+
+    .location-cards .cards-card-image {
+        aspect-ratio: 1;
+    }
 }
 
 .location-cards .cards-card-image .cards-card-image-0 picture {
