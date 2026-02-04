@@ -16,15 +16,15 @@
       }
     },
     {
-      "title": "Card",
-      "id": "card",
+      "title": "Location Card",
+      "id": "location-card",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "name": "Card",
-              "model": "card"
+              "name": "Location Card",
+              "model": "location-card"
             }
           }
         }
@@ -33,14 +33,14 @@
   ],
   "models": [
     {
-      "id": "card",
+      "id": "location-card",
       "fields": [
         {
           "component": "reference",
           "valueType": "string",
           "name": "image",
           "label": "Image",
-          "multi": false
+          "multi": true
         },
         {
           "component": "richtext",
@@ -55,7 +55,7 @@
   "filters": [
     {
       "id": "location-cards",
-      "components": ["card"]
+      "components": ["location-card"]
     }
   ]
 }
