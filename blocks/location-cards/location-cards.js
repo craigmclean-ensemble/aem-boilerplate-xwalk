@@ -31,7 +31,14 @@ export default function decorate(block) {
             [{ width }],
           );
 
+          if (isEager) {
+            optimizedPic
+              ?.querySelector("img")
+              ?.setAttribute("fetchpriority", "high");
+          }
+
           const optimizedImg = optimizedPic.querySelector("img");
+
           moveInstrumentation(img, optimizedImg);
           img.closest("picture").replaceWith(optimizedPic);
         });
