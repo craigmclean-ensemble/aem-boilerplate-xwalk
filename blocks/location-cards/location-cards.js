@@ -4,7 +4,7 @@ import { moveInstrumentation } from "../../scripts/scripts.js";
 export default function decorate(block) {
   const ul = document.createElement("ul");
 
-  [...block.children].forEach((row) => {
+  [...block.children].forEach((row, rowIndex) => {
     const li = document.createElement("li");
     moveInstrumentation(row, li);
 
@@ -14,17 +14,32 @@ export default function decorate(block) {
     const bodyParent = document.createElement("div");
     bodyParent.className = "cards-card-body";
 
-    let imageCount = 0;
-    [...row.children].forEach((cell) => {
+    [...row.children].forEach((cell, cellIndex) => {
       if (cell.querySelector("picture")) {
         const wrapper = document.createElement("div");
-        wrapper.className = `cards-card-image-${imageCount}`;
+        wrapper.className = `cards-card-image-${cellIndex}`;
         moveInstrumentation(cell, wrapper);
+
+        cell.querySelectorAll("img").forEach((img) => {
+          const isEager = rowIndex === 0 || rowIndex === 1;
+          const width = cellIndex === 0 ? "750" : "350";
+
+          const optimizedPic = createOptimizedPicture(
+            img.src,
+            img.alt,
+            isEager,
+            [{ width }],
+          );
+
+          const optimizedImg = optimizedPic.querySelector("img");
+          moveInstrumentation(img, optimizedImg);
+          img.closest("picture").replaceWith(optimizedPic);
+        });
 
         while (cell.firstChild) wrapper.append(cell.firstChild);
         imageParent.append(wrapper);
-        imageCount += 1;
       } else {
+        // Body processing
         moveInstrumentation(cell, bodyParent);
         while (cell.firstChild) bodyParent.append(cell.firstChild);
 
@@ -42,17 +57,6 @@ export default function decorate(block) {
     li.append(imageParent);
     li.append(bodyParent);
     ul.append(li);
-  });
-
-  ul.querySelectorAll("img").forEach((img) => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [
-      { width: "750" },
-    ]);
-    const optimizedImg = optimizedPic.querySelector("img");
-
-    moveInstrumentation(img, optimizedImg);
-
-    img.closest("picture").replaceWith(optimizedPic);
   });
 
   block.replaceChildren(ul);
