@@ -240,5 +240,17 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "contact-card",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   }
 ]
