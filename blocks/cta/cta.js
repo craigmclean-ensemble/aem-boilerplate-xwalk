@@ -38,7 +38,7 @@ export default function decorate(block) {
     moveInstrumentation(row, li);
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
-      div.className = "contact-card";
+      div.className = "cta";
     });
     mainDiv.append(li);
   });
