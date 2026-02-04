@@ -1,91 +1,91 @@
-/* main > .section.cta-container {
-  width: 100vw;
-  max-width: 100%;
-  margin-bottom: 160px;
+main > .section.cta-container {
+    width: 100vw;
+    max-width: 100%;
+    margin-bottom: 160px;
 }
 
 .cta.block {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .cta.block > div:first-child > div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .cta.block h1 {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
-  padding: 0;
-  margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
 }
 
 .cta.block p {
-  font-size: 16px;
-  line-height: 24px;
-  padding: 0;
-  margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0;
+    margin: 0;
 }
 
 .cta-button-container {
-  margin-top: 60px;
-  background-color: rgb(255 142 47);
-  padding: 15px 20px;
-  border-radius: 4px;
-  display: flex;
-  cursor: pointer;
-  color: white !important;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  font-family: 'Open Sans', sans-serif;
-  align-items: center;
-  border-style: solid;
-  border-width: 1px;
-  border-color: transparent;
+    margin-top: 60px;
+    background-color: rgb(255 142 47);
+    padding: 15px 20px;
+    border-radius: 4px;
+    display: flex;
+    cursor: pointer;
+    color: white !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    font-family: "Open Sans", sans-serif;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
 }
 
 .cta-button-container:visited {
-  color: white;
+    color: white;
 }
 
 .cta-button-container:hover {
-  background-color: white;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black !important;
-  text-decoration: none;
-  color: black !important;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black !important;
+    text-decoration: none;
+    color: black !important;
 }
 
 .email-text {
-  margin-left: 16px;
+    margin-left: 16px;
 }
 
 .cta-button-container .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 20px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 20px;
+    filter: invert(1);
 }
 
-.cta-button-container .icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  fill: currentcolor;
+.cta-button-container:hover .icon {
+    filter: invert(0);
 }
 
-.cta-button-container .icon svg use {
-  width: 100%;
-  height: 100%;
+.cta-button-container .icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: fill;
+    aspect-ratio: unset;
 }
- */
