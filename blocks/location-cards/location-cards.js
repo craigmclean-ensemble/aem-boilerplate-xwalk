@@ -6,39 +6,29 @@ export default function decorate(block) {
 
   [...block.children].forEach((row) => {
     const li = document.createElement("li");
-
     moveInstrumentation(row, li);
 
-    while (row.firstElementChild) li.append(row.firstElementChild);
+    const imageParent = document.createElement("div");
+    imageParent.className = "cards-card-image";
 
-    [...li.children].forEach((div) => {
-      if (div.querySelector("picture")) {
-        div.className = "cards-card-image";
+    const bodyParent = document.createElement("div");
+    bodyParent.className = "cards-card-body";
 
-        const pEls = div.querySelectorAll("p");
-        if (pEls.length) {
-          pEls.forEach((p, key) => {
-            const newDiv = document.createElement("div");
-            newDiv.className = `cards-card-image-${key}`;
+    let imageCount = 0;
+    [...row.children].forEach((cell) => {
+      if (cell.querySelector("picture")) {
+        const wrapper = document.createElement("div");
+        wrapper.className = `cards-card-image-${imageCount}`;
+        moveInstrumentation(cell, wrapper);
 
-            moveInstrumentation(p, newDiv);
-
-            while (p.firstChild) newDiv.appendChild(p.firstChild);
-            p.replaceWith(newDiv);
-          });
-        } else {
-          const pic = div.querySelector("picture");
-          if (pic) {
-            const wrapper = document.createElement("div");
-            wrapper.className = "cards-card-image-0";
-            pic.replaceWith(wrapper);
-            wrapper.appendChild(pic);
-          }
-        }
+        while (cell.firstChild) wrapper.append(cell.firstChild);
+        imageParent.append(wrapper);
+        imageCount += 1;
       } else {
-        div.className = "cards-card-body";
+        moveInstrumentation(cell, bodyParent);
+        while (cell.firstChild) bodyParent.append(cell.firstChild);
 
-        const h2 = div.querySelector("h2");
+        const h2 = bodyParent.querySelector("h2");
         if (h2) {
           const strong = h2.querySelector("strong");
           if (strong) {
@@ -48,6 +38,9 @@ export default function decorate(block) {
         }
       }
     });
+
+    li.append(imageParent);
+    li.append(bodyParent);
     ul.append(li);
   });
 
