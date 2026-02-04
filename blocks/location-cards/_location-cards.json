@@ -36,7 +36,7 @@
       "id": "location-card",
       "fields": [
         {
-          "component": "reference",
+          "component": "container",
           "valueType": "string",
           "name": "image",
           "label": "Image",
