@@ -1,4 +1,4 @@
-main > .section.contact-cards-container {
+.contact-cards-container {
     width: 100%;
     max-width: 100vw;
     overflow: hidden;
@@ -9,17 +9,37 @@ main > .section.contact-cards-container {
 .contact-cards.block {
     width: 100%;
     padding-bottom: 80px;
-}
 
-.contact-cards.block > div:first-child {
-    display: flex;
-    flex-direction: column;
-}
+    > div:first-child {
+        display: flex;
+        flex-direction: column;
 
-.contact-cards.block > div:first-child > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (width >= 768px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 32px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        > div:nth-child(odd) {
+            @media (width >= 768px) {
+                align-items: flex-end;
+            }
+        }
+
+        > div:nth-child(event) {
+            @media (width >= 768px) {
+                align-items: flex-start;
+            }
+        }
+    }
 }
 
 .contact-card {
@@ -28,86 +48,66 @@ main > .section.contact-cards-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-.contact-card h2 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0;
-    font-family: "Open Sans", sans-serif;
-}
-
-.contact-card p {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0;
-    font-family: "Open Sans", sans-serif;
-    color: rgb(48 48 48);
-}
-
-.contact-card .button-container a {
-    background-color: transparent;
-    color: rgb(0 82 115);
-    font-size: 14px;
-    font-weight: 400;
-    padding: 0;
-    border-width: 0;
-    margin: 0;
-    font-family: "Open Sans", sans-serif;
-}
-
-@media (width >= 768px) {
-    .contact-cards.block > div:first-child {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 32px;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .contact-cards.block > div:first-child > div:nth-child(odd) {
-        align-items: flex-end;
-    }
-
-    .contact-cards.block > div:first-child > div:nth-child(even) {
-        align-items: flex-start;
-    }
-
-    .contact-card {
-        padding-top: 80px;
-    }
-
-    .contact-card h2 {
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 28px;
-    }
-
-    .contact-card p {
+    h2 {
         font-size: 14px;
         font-weight: 600;
-        line-height: 28px;
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+
+        @media (width >= 768px) {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 28px;
+        }
     }
 
-    .contact-card .button-container a {
-        font-size: 16px;
-        line-height: 28px;
-    }
-}
-
-@media (width >= 1279px) {
-    .contact-card p {
-        font-size: 16px;
+    p {
+        font-size: 14px;
         font-weight: 600;
-        line-height: 28px;
-    }
-}
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        color: rgb(48 48 48);
 
-.contact-card .button-container {
-    background-color: transparent;
-    color: rgb(0 82 115);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 28px;
-    height: max-content;
+        @media (width >= 768px) {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 28px;
+        }
+
+        @media (width >= 1279px) {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 28px;
+        }
+    }
+
+    .button-container {
+        background-color: transparent;
+        color: rgb(0 82 115);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        height: max-content;
+
+        a {
+            background-color: transparent;
+            color: rgb(0 82 115);
+            font-size: 14px;
+            font-weight: 400;
+            padding: 0;
+            border-width: 0;
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+
+            @media (width >= 768px) {
+                font-size: 16px;
+                line-height: 28px;
+            }
+        }
+    }
+
+    @media (width >= 768px) {
+        padding-top: 80px;
+    }
 }
