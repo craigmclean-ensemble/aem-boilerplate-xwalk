@@ -34,7 +34,7 @@
             }
         }
 
-        > div:nth-child(event) {
+        > div:nth-child(even) {
             @media (width >= 768px) {
                 align-items: flex-start;
             }
