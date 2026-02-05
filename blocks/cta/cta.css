@@ -1,4 +1,4 @@
-main > .section.cta-container {
+.cta-container {
     width: 100vw;
     max-width: 100%;
     margin-bottom: 160px;
@@ -9,98 +9,96 @@ main > .section.cta-container {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
 
-.cta.block > div:first-child > div:first-child {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    h1 {
+        font-size: 16px;
+        font-weight: 600;
+        padding: 0;
+        margin: 0;
 
-.cta.block h1 {
-    font-size: 16px;
-    font-weight: 600;
-    padding: 0;
-    margin: 0;
-}
-
-.cta.block p {
-    font-size: 14px;
-    padding: 0;
-    margin: 0;
-}
-
-.cta-button-container {
-    margin-top: 40px;
-    background-color: rgb(255 142 47);
-    padding: 15px 20px;
-    border-radius: 4px;
-    display: flex;
-    cursor: pointer;
-    color: white !important;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    font-family: "Open Sans", sans-serif;
-    align-items: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: transparent;
-}
-
-.cta-button-container:visited {
-    color: white;
-}
-
-.cta-button-container:hover {
-    background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black !important;
-    text-decoration: none;
-    color: black !important;
-}
-
-.email-text {
-    margin-left: 16px;
-}
-
-.cta-button-container .icon {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 20px;
-    filter: invert(1);
-}
-
-.cta-button-container:hover .icon {
-    filter: invert(0);
-}
-
-.cta-button-container .icon img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: fill;
-    aspect-ratio: unset;
-}
-
-@media (width >= 768px) {
-    .cta.block h1 {
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 32px;
+        @media (width >= 768px) {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 32px;
+        }
     }
 
-    .cta.block p {
-        font-size: 16px;
-        line-height: 24px;
+    p {
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+
+        @media (width >= 768px) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    & > div:first-child > div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .cta-button-container {
-        margin-top: 60px;
+        margin-top: 40px;
+        background-color: rgb(255 142 47);
+        padding: 15px 20px;
+        border-radius: 4px;
+        display: flex;
+        cursor: pointer;
+        color: white !important;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        font-family: "Open Sans", sans-serif;
+        align-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: transparent;
+
+        &:visited {
+            color: white;
+        }
+
+        .icon {
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 20px;
+            filter: invert(1);
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: fill;
+                aspect-ratio: unset;
+            }
+        }
+
+        &:hover {
+            background-color: white;
+            border-style: solid;
+            border-width: 1px;
+            border-color: black !important;
+            text-decoration: none;
+            color: black !important;
+
+            .icon {
+                filter: invert(0);
+            }
+        }
+
+        .email-text {
+            margin-left: 16px;
+        }
+
+        @media (width >= 768px) {
+            margin-top: 60px;
+        }
     }
 }
